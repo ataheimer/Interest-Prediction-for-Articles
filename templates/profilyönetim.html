@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil Yönetim</title>
+</head>
+<body>
+    <h1>Profil Yönetim</h1>
+    <form method="POST">
+        <h2>Mevcut İlgi Alanlarınız:</h2>
+        <ul>
+            {% for interest in user['interests'] %}
+                <li>
+                    <label>
+                        <input type="checkbox" name="interests[]" value="{{ interest }}">
+                        {{ interest }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">İlgi Alanlarımdan Kaldır</button>
+    </form>
+</body>
+</html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

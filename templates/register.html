@@ -1,0 +1,26 @@
+<form method="POST">
+    <input type="text" name="full_name" placeholder="Ad Soyad" required>
+    <input type="text" name="birth_date" placeholder="Doğum Tarihi" required>
+    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" name="password" placeholder="Şifre" required>
+
+    <div class="interests-container">
+        <label for="interests">İlgi Alanları:</label><br>
+        {% for interest in interests %}
+            <input type="checkbox" name="interests[]" value="{{ interest }}"> {{ interest }}<br>
+        {% endfor %}
+    </div>
+
+    <button type="submit">Kayıt Ol</button>
+</form>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<a href="{{ url_for('index') }}">Giriş Yap</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

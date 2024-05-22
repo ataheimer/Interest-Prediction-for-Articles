@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arama Motoru</title>
+</head>
+<body>
+    <form action="{{ url_for('search') }}" method="POST">
+        <input type="text" name="query" placeholder="Ara...">
+        <select name="interest">
+            <option value="" selected>ilgi alanı seçin</option>
+            {% for interest in interests %}
+                <option value="{{ interest }}">{{ interest }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Ara">
+    </form>
+    {% for result in results %}
+        <a href="{{ url_for('result', id=result.id) }}">{{ result.id }} - {{ result.title }}</a><br>
+    {% endfor %}
+</body>
+</html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

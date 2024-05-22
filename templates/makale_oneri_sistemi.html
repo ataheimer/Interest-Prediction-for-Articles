@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Makale Öneri Sistemi</title>
+</head>
+<body>
+    <h1>Makale Öneri Sistemi Sonuçları</h1>
+    <form method="POST">
+        <div class="feedback-container">
+            <label for="feedback">FastText:</label><br>
+            {% for i in birlesik_liste %}
+                <input type="checkbox" name="feedback[]" value="{{ i }}"> {{ i }}<br>
+            {% endfor %}
+        </div>
+        <div class="feedback-container">
+            <label for="feedback">SCIBERT:</label><br>
+            {% for i in birlesik_liste2 %}
+                <input type="checkbox" name="feedback[]" value="{{ i }}"> {{ i }}<br>
+            {% endfor %}
+        </div>
+        <button type="submit">Geribildirim Gönder</button>
+    </form>
+</body>
+</html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

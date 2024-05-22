@@ -1,0 +1,17 @@
+<form method="POST">
+    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" name="password" placeholder="Şifre" required>
+    <button type="submit">Giriş Yap</button>
+</form>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<a href="{{ url_for('register') }}">Kayıt Ol</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+

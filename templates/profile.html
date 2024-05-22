@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil Sayfası</title>
+</head>
+<body>
+    <h1>Profil Sayfası</h1>
+    <h2>Kullanıcı Adı: {{ username }}</h2>
+    <form action="{{ url_for('profil_yönetim', username=username) }}" method="POST">
+        <button type="submit">Profil Yönetim</button>
+    </form>
+    <form action="{{ url_for('makale_öneri_sistemi') }}" method="POST">
+        <button type="submit">Makale Öneri Sistemi</button>
+    </form>
+    <form action="{{ url_for('makale_arama_sistemi') }}" method="POST">
+        <button type="submit">Makale Arama Sistemi</button>
+    </form>
+</body>
+</html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
