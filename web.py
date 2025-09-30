@@ -7,7 +7,7 @@ solr = pysolr.Solr('http://localhost:8983/solr/mycore', always_commit=True)
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-client = MongoClient('mongodb+srv://ataemiruncu:18temmuz2003@cluster0.prqckre.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://ataemiruncu:<password>@cluster0.prqckre.mongodb.net/?retryWrites=true&w=majority')
 db = client['Yazlab3']
 users_collection = db['users']
 
